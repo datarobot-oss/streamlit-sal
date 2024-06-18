@@ -33,7 +33,7 @@ def main():
         if prompt_yes_no("Did you run this command from the project root?"):
             run_init()
         else:
-            print("Please run 'init' again from the project root directory")
+            print("Please run 'streamlit-sal init' again from the project root")
     elif command == "compile":
         run_compile()
     else:
