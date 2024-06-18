@@ -1,0 +1,6 @@
+/* Base test example selector. TODO: Simplify using selector mixins APP-2777  */
+div.element-container:has(> div.stMarkdown > div[data-testid="stMarkdownContainer"] > p > span.sal-button) + div button {
+  border-radius: 5px;
+  border-color: pink;
+  color: pink;
+}
