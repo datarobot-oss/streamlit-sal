@@ -38,7 +38,7 @@ def find_root_dir():
             # We have reached the root directory
             break
         current_dir = parent_dir
-    return None
+    raise Exception(f"Could not find root directory. Did you run 'streamlit-sal init'?")
 
 
 def find_config_file():
