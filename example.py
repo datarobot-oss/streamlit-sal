@@ -8,7 +8,7 @@ with sal_stylesheet(reduce_markdown_spacing=True, move_sidebar_right=True):
     st.subheader('Remember to run `streamlit-sal compile` before running this example app')
 
     with sal.button():
-        st.button('Custom Styled button')
+        st.button('Custom styled button')
 
     with st.sidebar:
-        st.write('Sup')
+        st.write('The sidebar is now on the right side')
