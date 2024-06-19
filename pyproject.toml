@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "streamlit-sal"
+version = "0.0.1"
+description = "Style and layout for your Streamlit app using LESS"
+authors = ["DataRobot Developers <apps-devs@datarobot.com>"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/datarobot/streamlit-sal"
+repository = "https://github.com/datarobot/streamlit-sal"
+documentation = "https://github.com/datarobot/streamlit-sal"
+include = ["README.md", "LICENSE", "streamlit_sal/**"]
+
+[tool.poetry.scripts]
+streamlit-sal = "streamlit_sal.scripts.cli:cli"
+
+[tool.poetry.dependencies]
+python = "!=3.9.7,>=3.8"
+streamlit = "1.35.0"
+click = "^8.1.7"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
