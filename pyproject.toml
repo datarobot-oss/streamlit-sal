@@ -2,7 +2,7 @@
 name = "streamlit-sal"
 version = "0.0.1"
 description = "Style and layout for your Streamlit app using LESS"
-authors = ["DataRobot Developers <dev@datarobot.com>"]
+authors = ["DataRobot Developers <apps-devs@datarobot.com>"]
 license = "MIT"
 readme = "README.md"
 homepage = "https://github.com/datarobot/streamlit-sal"
