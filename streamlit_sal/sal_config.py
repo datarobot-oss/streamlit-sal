@@ -1,16 +1,22 @@
 from enum import Enum
 
-BASE_STYLESHEET_FILE_NAME = 'base-stylesheet.less'
-DEFAULT_LESS_FILE_NAME = 'sal-stylesheet.less'
-DEFAULT_CSS_FILE_NAME = 'sal-stylesheet.css'
-DEFAULT_CURRENT_DIR = '.'
+# Stylesheet files (input/output)
+STYLE_DEFAULT_DIST_DIRECTORY = '.'
+
+STYLE_SASS_MAIN_FILE_NAME = 'main.scss'
+STYLE_SASS_LAYOUT_FILE_NAME = '_layout.scss'
+STYLE_SASS_UTILITIES_FILE_NAME = '_utilities.scss'
+STYLE_SASS_SOURCE_FILES = [STYLE_SASS_MAIN_FILE_NAME, STYLE_SASS_LAYOUT_FILE_NAME, STYLE_SASS_UTILITIES_FILE_NAME]
+
+STYLE_DEFAULT_CSS_FILE_NAME = 'sal-stylesheet.css'
+
+# Config util
 CONFIG_FILE_NAME = '.streamlit_sal'
 CONFIG_DEFAULT_SECTION = 'settings'
 
 
 class ConfigOptions(Enum):
-    LESS_FILE_PATH = 'less_file_path'
-    LESS_FILE_NAME = 'less_file_name'
-    CSS_FILE_PATH = 'css_file_path'
-    CSS_FILE_NAME = 'css_file_name'
+    SASS_SOURCE_PATH = 'sass_source_path'
+    CSS_STYLESHEET_FILE_PATH = 'css_stylesheet_file_path'
+    CSS_STYLESHEET_FILE_NAME = 'css_stylesheet_file_name'
 

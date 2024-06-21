@@ -1,12 +1,4 @@
-/* Base test example selector. TODO: Simplify using selector mixins APP-2777  */
-div.element-container:has(> div.stMarkdown > div[data-testid="stMarkdownContainer"] > p > span.sal-button) + div button {
-  border-radius: 5px;
-  border-color: pink;
-  color: pink;
-}
-
-/*
-* The following section contains styling for prebuilt app layouts and utils
+/* This file contains styling for prebuilt app layouts
 * Use them via the arguments given to `with sal_stylesheet`
 * reduce_markdown_spacing [Defaults to True]
 * move_sidebar_right  [Defaults to False]

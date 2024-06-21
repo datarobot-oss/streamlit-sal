@@ -1,5 +1,4 @@
 [settings]
-less_file_path = .
-less_file_name = sal-stylesheet.less
-css_file_path = .
-css_file_name = sal-stylesheet.css
+sass_source_path = .
+css_stylesheet_file_path = .
+css_stylesheet_file_name = sal-stylesheet.css
