@@ -1,0 +1,14 @@
+@import 'utilities';
+@import 'layout';
+
+/* In this file you can add custom styling for your Streamlit app.
+* Either use the general style placeholders such as `%sal-button` or
+* create new style blocks using the selector utilities TODO these are coming with APP-2777
+*/
+
+/* Base test example selector. TODO: Simplify using selector mixins APP-2777  */
+div.element-container:has(> div.stMarkdown > div[data-testid="stMarkdownContainer"] > p > span.sal-button) + div button {
+  border-radius: 5px;
+  border-color: pink;
+  color: pink;
+}

@@ -52,7 +52,7 @@ def find_config_file():
 
 def get_css_filepath():
     root_dir = find_root_dir()
-    path = get_config_value(ConfigOptions.CSS_FILE_PATH.value)
-    name = get_config_value(ConfigOptions.CSS_FILE_NAME.value)
+    path = get_config_value(ConfigOptions.CSS_STYLESHEET_FILE_PATH.value)
+    name = get_config_value(ConfigOptions.CSS_STYLESHEET_FILE_NAME.value)
     css_file_path = os.path.join(root_dir, path, name)
     return css_file_path
