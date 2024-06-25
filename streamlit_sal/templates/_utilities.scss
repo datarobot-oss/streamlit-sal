@@ -1,3 +1,14 @@
-/* This file contains utilities to simplify creating selectors for the Streamlit components.
-* # TODO: These utils will come with task APP-2777
-*/
+/* This file contains utilities to simplify using selectors for the Streamlit components. */
+
+@function markdown_selector($tag, $class) {
+  @return '> div.stMarkdown > div[data-testid="stMarkdownContainer"] #{$tag}.' + $class;
+}
+
+@function streamlit_element_container_selector($component, $child-element-selector, $custom-class: null, $tag: 'span') {
+  $has-pseudo-selector: markdown_selector($tag, $component);
+  @if $custom-class {
+    $has-pseudo-selector: '#{markdown_selector($tag, $component)}.#{$custom-class}';
+  }
+
+  @return 'div.element-container:has(#{$has-pseudo-selector}) #{$child-element-selector}'
+}

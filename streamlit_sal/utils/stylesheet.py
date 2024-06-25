@@ -1,3 +1,5 @@
+from contextlib import contextmanager
+
 import streamlit as st
 
 from .config import get_css_filepath
@@ -31,3 +33,13 @@ def sal_stylesheet(reduce_markdown_spacing=True, move_sidebar_right=False):
                 return container
     except FileNotFoundError:
         raise FileNotFoundError(f"Could not locate stylesheet: {css_filepath}")
+
+
+@contextmanager
+def create_markdown_container(component_name, class_names=None, is_hidden=True):
+    classes = list(class_names) if class_names else []
+    classes.append(f"sal-{component_name}")
+    if is_hidden:
+        classes.append('hidden')
+    st.markdown(f"<span class='{' '.join(classes)}'></span>", unsafe_allow_html=True)
+    yield

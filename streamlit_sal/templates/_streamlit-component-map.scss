@@ -1,0 +1,269 @@
+// Common selector patterns to reuse
+$next-sibling: '+ div';
+$markdown-container: '+ div div[data-testid="stMarkdownContainer"]';
+$link-icon: '+ div div[data-testid="StyledLinkIconContainer"]';
+$toolbar: '+ div div.stElementToolbar';
+$toolbar-button: '+ div div[data-testid="stElementToolbarButton"]';
+$fullscreen-button: '+ div button[data-testid="StyledFullScreenButton"]';
+$label: '+ div label';
+$widget-label: '+ div div[data-testid="stWidgetLabel"]';
+$chart: '+ div div[data-testid="stArrowVegaLiteChart"]';
+$button: "+ div button";
+$input: '+ div input';
+$input-instructions: '+div div[data-testid="InputInstructions"]';
+$status-icon: '+ div span[data-testid="stAlertDynamicIcon"]';
+$notification: '+ div div[data-testid="stNotification"]';
+
+// Streamlit component structure map
+// 'default' is the primary element selector for the component
+// 'container' is the div.element-container wrapping the component
+// Any other elements defined are special child element of a component
+$element-container-components: (
+  sal-write: (container: $next-sibling, default: $markdown-container),
+  /*** Text elements ***/
+  sal-title: (
+    container: $next-sibling,
+    default: "+ div h1",
+    markdown-container: $markdown-container,
+    link-icon: $link-icon
+  ),
+  sal-header: (
+    container: $next-sibling,
+    default: "+ div h2",
+    markdown-container: $markdown-container,
+    link-icon: $link-icon
+  ),
+  sal-subheader: (
+    container: $next-sibling,
+    default: "+ div h3",
+    markdown-container: $markdown-container,
+    link-icon: $link-icon
+  ),
+  sal-markdown: (container: $next-sibling, default: $markdown-container),
+  /*** Formatted text elements ***/
+  sal-caption: (container: $next-sibling, default: '+ div div[data-testid="stCaptionContainer"]'),
+  sal-code: (container: $next-sibling, default: '+ div div.stCodeBlock', copy-button: '+ div div.stCodeBlock button'),
+  sal-divider: (container: $next-sibling, default: "+ div hr"),
+  // Will not support:  sal-echo, please use st.text/st.write and st.code to style
+  sal-latex: (container: $next-sibling, default: "+ div div.math"),
+  sal-text: (container: $next-sibling, default: '+ div div[data-testid="stText"]'),
+  /*** Data elements ***/
+  sal-dataframe: (
+    container: $next-sibling,
+    default: '+ div div.glideDataEditor',
+    toolbar: $toolbar,
+    toolbar-button: $toolbar-button
+  ),
+  sal-data-editor: (
+    container: $next-sibling,
+    default: '+ div div.glideDataEditor',
+    toolbar: $toolbar,
+    toolbar-button: $toolbar-button
+  ),
+  // Will not support: 'sal-column-config'
+  sal-table: (
+    container: $next-sibling,
+    default: '+div div[data-testid="stTable"]',
+    fullscreen-button: $fullscreen-button
+  ),
+  sal-metric: (
+    container: $next-sibling,
+    value: '+ div div[data-testid="stMetricValue"]',
+    delta: '+ div div[data-testid="stMetricDelta"]',
+    label: $label
+  ),
+  sal-json: (container: $next-sibling, default: "+ div div.react-json-view"),
+  /*** Chart elements ***/
+  sal-area-chart: (container: $next-sibling, default: $chart, fullscreen-button: $fullscreen-button),
+  sal-bar-chart: (container: $next-sibling, default: $chart, fullscreen-button: $fullscreen-button),
+  sal-line-chart: (container: $next-sibling, default: $chart, fullscreen-button: $fullscreen-button),
+  sal-map: (container: $next-sibling, default: '+ div div.stDeckGlJsonChart', fullscreen-button: $fullscreen-button),
+  sal-scatter-chart: (container: $next-sibling, default: $chart, fullscreen-button: $fullscreen-button),
+  sal-altair-chart: (container: $next-sibling, default: $chart, fullscreen-button: $fullscreen-button),
+  sal-bokeh-chart: (container: $next-sibling, default: '+ div div.stBokehChart', fullscreen-button: $fullscreen-button),
+  sal-graphviz-chart: (container: $next-sibling, default: '+ div div.stGraphVizChart', fullscreen-button: $fullscreen-button),
+  sal-plotly-chart: (container: $next-sibling, default: '+ div div.stPlotlyChart', fullscreen-button: $fullscreen-button),
+  sal-pydeck-chart: (container: $next-sibling, default: '+ div div.stDeckGlJsonChart', fullscreen-button: $fullscreen-button),
+  sal-pyplot: (container: $next-sibling, default: '+ div div[data-testid="stImage"]', fullscreen-button: $fullscreen-button),
+  sal-vega-lite-chart: (container: $next-sibling, default: $chart, fullscreen-button: $fullscreen-button),
+  /*** Input elements ***/
+  sal-button: (container: $next-sibling, default: $button),
+  sal-download-button: (container: $next-sibling, default: $button),
+  sal-form-submit-button: (container: $next-sibling, default: $button),
+  sal-link-button: (container: $next-sibling, default: '+ div a', text: $markdown-container),
+  sal-page-link: (container: $next-sibling, default: '+ div a', text: $markdown-container),
+  sal-checkbox: (
+    container: $next-sibling,
+    default: '+ div div.stCheckbox',
+    widget-label: $widget-label,
+    box: '+ div label span',
+    label: $label,
+  ),
+  sal-color-picker: (
+    container: $next-sibling,
+    default: '+ div div[data-testid="stColorPicker"]',
+    label: $label,
+    color-block: '+ div div[data-testid="stColorBlock"]',
+  ),
+  sal-multiselect: (
+    container: $next-sibling,
+    default: '+ div div.stMultiSelect',
+    label: $label,
+    input: '+ div div.stMultiSelect div'
+  ),
+  sal-radio: (
+    container: $next-sibling,
+    default: '+ div div.stRadio',
+    widget-label: $widget-label,
+    group: '+ div div.stRadio div',
+    item-label: '+ div div.stRadio div label',
+    item-markdown: '+ div div.stRadio div label div[data-testid="stMarkdownContainer"]',
+    item-caption: '+ div div.stRadio div label div[data-testid="stCaptionContainer"]'
+  ),
+  sal-selectbox: (container: $next-sibling, default: '+ div div.stSelectbox', widget-label: $widget-label),
+  sal-select-slider: (
+    container: $next-sibling,
+    default: '+ div div.stSlider',
+    widget-label: $widget-label,
+    slider: '+ div div.stSlider div div:first-child',
+    selection: '+ div div.stSlider div div[data-testid="stTickBar"]',
+  ),
+  sal-toggle: (
+    container: $next-sibling,
+    default: '+ div div.stCheckbox', // Possible naming error in Streamlit?
+    toggle: '+ div label span',
+    widget-label: $widget-label,
+    label: $label,
+  ),
+  sal-number-input: (
+    container: $next-sibling,
+    default: '+ div div.stNumberInput',
+    widget-label: $widget-label,
+    input: $input,
+  ),
+  sal-slider: (
+    container: $next-sibling,
+    default: '+ div div.stSlider',
+    widget-label: $widget-label,
+    slider: '+ div div.stSlider div div:first-child',
+    selection: '+ div div.stSlider div div[data-testid="stTickBar"]',
+  ),
+  sal-date-input: (
+    container: $next-sibling,
+    default: '+ div div.stDateInput',
+    widget-label: $widget-label,
+    input: $input,
+  ),
+  sal-time-input: (
+    container: $next-sibling,
+    default: '+ div div.stTimeInput',
+    widget-label: $widget-label,
+    selection: '+ div div[data-baseweb="select"] > div > div:first-child',
+    chevron: '+ div div[data-baseweb="select"] > div > div:last-child',
+  ),
+  sal-text-area: (
+    container: $next-sibling,
+    widget-label: $widget-label,
+    default: '+ div textarea',
+    instructions: $input-instructions
+  ),
+  sal-text-input: (
+    container: $next-sibling,
+    widget-label: $widget-label,
+    default: '+ div input',
+    instructions: $input-instructions
+  ),
+  sal-camera-input: (
+    container: $next-sibling,
+    widget-label: $widget-label,
+    default: '+ div div[data-testid="stWebcamComponent"]',
+    video: '+ div video'
+  ),
+  sal-file-uploader: (
+    container: $next-sibling,
+    widget-label: $widget-label,
+    default: '+ div div[data-testid="stFileUploader"]',
+    drop: '+ div section',
+    icon: '+ div svg',
+    text: '+ div div[data-testid="stFileDropzoneInstructions"] > div > span',
+    info: '+ div div[data-testid="stFileDropzoneInstructions"] > div > small'
+  ),
+  /*** Media elements ***/
+  sal-audio: (container: $next-sibling, default: '+ div div.stAudio'),
+  sal-image: (
+    container: $next-sibling,
+    default: '+ div div[data-testid="stImage"]',
+    image: '+ div img',
+    fullscreen-button: $fullscreen-button
+  ),
+  sal-video: (container: $next-sibling, default: '+ div div.stVideo'),
+  /***
+  Layout and container elements
+   TODO These special elements are not supported yet, add support in APP-2829
+  ***/
+  // sal-columns: (),
+  // sal-column: (),
+  // sal-container: (),
+  // sal-experimental-dialog: (),
+  // sal-empty: (),
+  // sal-expander: (),
+  // sal-form: (),
+  // sal-popover: (),
+  // sal-sidebar: (),
+  // sal-tabs: (),
+  // sal-logo, it lies outside the main container
+  /*** Chat elements ***/
+  // Not supported: sal-chat-input: (), Uses special selectors
+  sal-chat-message: (
+    container: $next-sibling,
+    name: '+ div div.stChatMessage > div:first-child',
+    content: '+ div div[data-testid="stChatMessageContent"]'
+  ),
+  /*** Status elements ***/
+  sal-success: (
+    container: $next_sibling,
+    default: $notification,
+    icon: $status-icon,
+    text: $markdown-container,
+  ),
+  sal-info: (
+    container: $next_sibling,
+    default: $notification,
+    icon: $status-icon,
+    text: $markdown-container,
+  ),
+  sal-warning: (
+    container: $next_sibling,
+    default: $notification,
+    icon: $status-icon,
+    text: $markdown-container,
+  ),
+  sal-error: (
+    container: $next_sibling,
+    default: $notification,
+    icon: $status-icon,
+    text: $markdown-container,
+  ),
+  sal-exception: (
+    container: $next_sibling,
+    default: $notification,
+    messag: '+ div div.message',
+  ),
+  sal-progress: (
+    container: $next_sibling,
+    default: '+ div div.stProgress',
+    text: $markdown-container,
+    bar: '+ div div[data-baseweb="progress-bar"]'
+  ),
+  sal-spinner: (
+    container: $next_sibling,
+    default: '+ div div.stSpinner > div',
+    icon: '+ div i',
+    text: $markdown-container,
+  ),
+  // Not supported: sal-status: (), special container. TODO: add support in APP-2829
+  // Not supported: sal-toast: (), special container. TODO: add support in APP-2829
+  // Will not support: sal-write-stream
+  // Will not support: sal-balloons
+  // Will not support: sal-snow
+);
