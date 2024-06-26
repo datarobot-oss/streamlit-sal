@@ -37,6 +37,8 @@ def sal_stylesheet(reduce_markdown_spacing=True, move_sidebar_right=False):
 
 @contextmanager
 def create_markdown_container(component_name, class_names=None, is_hidden=True):
+    # Replace any name underscores with dash to match class naming conventions in the style placeholders
+    component_name = component_name.replace("_", "-")
     classes = list(class_names) if class_names else []
     classes.append(f"sal-{component_name}")
     if is_hidden:
