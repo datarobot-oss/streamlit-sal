@@ -1,8 +1,5 @@
-import streamlit as st
+from ..utils import create_markdown_container
 
 
-def button(*classes):
-    # Todo: Add args class name validation for st.button styles
-    container = st.container()
-    container.markdown(f"<span class='sal-button {' '.join(classes)} hidden'></span>", unsafe_allow_html=True)
-    return container
+def button(*args):
+    return create_markdown_container('button', args)

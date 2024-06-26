@@ -3,12 +3,55 @@
 
 /* In this file you can add custom styling for your Streamlit app.
 * Either use the general style placeholders such as `%sal-button` or
-* create new style blocks using the selector utilities TODO these are coming with APP-2777
+* create new style blocks using the selector utilities.
 */
 
-/* Base test example selector. TODO: Simplify using selector mixins APP-2777  */
-div.element-container:has(> div.stMarkdown > div[data-testid="stMarkdownContainer"] > p > span.sal-button) + div button {
+%sal-button-container {
+  // [st.button] Container styles
+  // TODO Remove after documentation tasks APP-2775/APP-2789
+  padding: 0 20px;
+}
+
+%sal-button {
+  // [st.button] Button styles
+  // TODO Remove after documentation tasks APP-2775/APP-2789
   border-radius: 5px;
   border-color: pink;
   color: pink;
 }
+
+// Example custom class TODO Remove after documentation tasks APP-2775/APP-2789
+%button-large {
+  font-size: large;
+  font-weight: bold;
+  padding: 20px;
+  border: 3px solid black;
+}
+
+// Example custom class TODO Remove after documentation tasks APP-2775/APP-2789
+%button-disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+// Example custom class TODO Remove after documentation tasks APP-2775/APP-2789
+%sal-write {
+  color: blue;
+}
+
+// Example custom class TODO Remove after documentation tasks APP-2775/APP-2789
+%sal-metric-label {
+  color: lawngreen;
+}
+
+/* Add new custom classes under the respective `sal-` component name key here.
+*  They will be compiled into the final stylesheet.
+*  Utility classes that are intended for multiple types of components need to be
+*  added to every component they can apply to.
+ */
+$custom-classes: (
+  sal-button: (button-disabled, button-large),
+);
+
+// Please note: Do not modify or move this final import!
+@import 'style-builder';

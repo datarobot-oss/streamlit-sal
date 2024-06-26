@@ -1,0 +1,31 @@
+@import 'utilities';
+@import 'streamlit-component-map';
+
+// Loop over the component map
+@each $component, $component-elements in $element-container-components {
+  // Loop over all significant child elements and extend with any defined placeholders
+  @each $child-element-name, $child-element-selector in $component-elements {
+    // The placeholders are the %sal-[name] values set in the main.scss file
+    $placeholder-name: #{$component}-#{$child-element-name};
+
+    @if $child-element-name == 'default' {
+      // Leave out the '-default' suffix
+      $placeholder-name: $component
+    }
+
+    // Define the element container selector
+    #{streamlit_element_container_selector($component, $child-element-selector)} {
+      // Optionally extend with a placeholder value, this block will not compile if the placeholder is not set/empty
+      @extend %#{$placeholder-name} !optional;
+    }
+
+    // Add styles for custom component classes
+    @if $custom-classes and map_has-key($custom-classes, $placeholder-name) {
+      @each $custom-class in map-get($custom-classes, $placeholder-name) {
+        #{streamlit_element_container_selector($component, $child-element-selector, $custom-class)} {
+          @extend %#{$custom-class};
+        }
+      }
+    }
+  }
+}

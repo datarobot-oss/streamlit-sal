@@ -1,7 +1,9 @@
 import os
+
 import sass
-from .. import ConfigOptions, STYLE_SASS_MAIN_FILE_NAME
+
 from .config import get_config_value
+from .. import ConfigOptions, STYLE_SASS_MAIN_FILE_NAME
 
 
 def run_compile():
@@ -15,6 +17,6 @@ def run_compile():
     output_file = os.path.join(css_path, css_file)
 
     with open(output_file, 'w') as f:
-        compiled_css = sass.compile(filename=input_file)
+        compiled_css = sass.compile(filename=input_file)  # TODO Consider using output_style='compressed' ?
         f.write(compiled_css)
         print(f"Compiled {input_file} to {output_file}")

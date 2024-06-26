@@ -1,3 +1,5 @@
+@import 'utilities';
+
 /* This file contains styling for prebuilt app layouts
 * Use them via the arguments given to `with sal_stylesheet`
 * reduce_markdown_spacing [Defaults to True]
@@ -7,15 +9,11 @@
 
 /*
 * Streamlit adds margins and heights to every st.markdown element, even if it doesnt contain any visible
-* elements. Hide all elements that contain a script or style tag with the 'hidden' class.
+* elements. Hide all elements that contain a span, script or style tag with the 'hidden' class.
 */
-div[data-testid="element-container"]:has(> div.stMarkdown > div[data-testid="stMarkdownContainer"] > style.hidden),
-div[data-testid="element-container"]:has(> div.stMarkdown > div[data-testid="stMarkdownContainer"] > script.hidden) {
-  display: none;
-}
-
-/* Hide the spans that help CSS selectors to find the right sibling elements. Uses class 'hidden'  */
-.element-container:has(> div.stMarkdown > div[data-testid="stMarkdownContainer"] > p > span.hidden) {
+#{streamlit_element_container_selector('hidden', '', null)},
+#{streamlit_element_container_selector('hidden', '', null, 'script')},
+#{streamlit_element_container_selector('hidden', '', null, 'style')} {
   display: none;
 }
 
