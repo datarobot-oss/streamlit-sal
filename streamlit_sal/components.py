@@ -66,7 +66,6 @@ def json(*args):
 
 # Chart elements
 def area_chart(*args):
-    # Replace name underscore with dash to match class naming conventions
     return create_markdown_container('area_chart', args)
 
 
