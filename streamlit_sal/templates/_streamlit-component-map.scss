@@ -13,6 +13,11 @@ $input: '+ div input';
 $input-instructions: '+div div[data-testid="InputInstructions"]';
 $status-icon: '+ div span[data-testid="stAlertDynamicIcon"]';
 $notification: '+ div div[data-testid="stNotification"]';
+$first-vertical-block: '+ div div[data-testid="stVerticalBlockBorderWrapper"] > div > div[data-testid="stVerticalBlock"]';
+
+// Structure defaults
+$default-parent: 'div.element-container';
+$default-direct-child: true;
 
 // Streamlit component structure map
 // 'default' is the primary element selector for the component
@@ -197,23 +202,60 @@ $element-container-components: (
     fullscreen-button: $fullscreen-button
   ),
   sal-video: (container: $next-sibling, default: '+ div div.stVideo'),
-  /***
-  Layout and container elements
-   TODO These special elements are not supported yet, add support in APP-2829
-  ***/
-  // sal-columns: (),
-  // sal-column: (),
-  // sal-container: (),
-  // sal-experimental-dialog: (),
-  // sal-empty: (),
-  // sal-expander: (),
-  // sal-form: (),
-  // sal-popover: (),
-  // sal-sidebar: (),
-  // sal-tabs: (),
-  // sal-logo, it lies outside the main container
+  /*** Layout and container elements ***/
+  sal-columns: (
+    default: $next-sibling,
+    column: '+ div div[data-testid="column"]',
+    column-contents: $first-vertical-block
+  ),
+  sal-column: (
+    _parent: 'div[data-testid="column"]',
+    _direct-child: false,
+    default: 'div[data-testid="stVerticalBlock"]',
+  ),
+  sal-container: (
+    container: $next-sibling,
+    default: $first-vertical-block,
+  ),
+  sal-expander: (
+    default: $next-sibling,
+    summary-text: '+ div summary > span',
+    chevron: '+ div summary > svg',
+    content: '+ div div[data-testid="stExpanderDetails"]'
+  ),
+  sal-form: (
+    container: $next-sibling,
+    default: $first-vertical-block
+  ),
+  sal-popover: (
+    container: $next-sibling,
+    default: $button,
+  ),
+  sal-popover-content: (
+    default: $next-sibling,
+  ),
+  sal-sidebar: (
+    _parent: 'section[data-testid="stSidebar"]',
+    _direct-child: false,
+    default: 'div[data-testid="stSidebarContent"]',
+    header: 'div[data-testid="stSidebarHeader"]',
+    content: 'div[data-testid="stSidebarUserContent"]'
+  ),
+  sal-tabs: (
+    default: $next-sibling,
+    border: '+ div div[data-baseweb="tab-border"]',
+    list: '+ div div[data-baseweb="tab-list"]',
+    list-buttons: '+ div div[data-baseweb="tab-list"] button',
+    panel: '+ div div[data-baseweb="tab-panel"]'
+  ),
+  // sal-logo: Alternate support as it lies outside the main container. It can be styled using %sal-logo within main.scss
   /*** Chat elements ***/
-  // Not supported: sal-chat-input: (), Uses special selectors
+  sal-chat-input: (
+    container: $next-sibling,
+    default: '+ div div.stChatInput > div',
+    text: '+ div textarea[data-testid="stChatInputTextArea"]',
+    button: '+div button[data-testid="stChatInputSubmitButton"]'
+  ),
   sal-chat-message: (
     container: $next-sibling,
     name: '+ div div.stChatMessage > div:first-child',
@@ -261,8 +303,13 @@ $element-container-components: (
     icon: '+ div i',
     text: $markdown-container,
   ),
-  // Not supported: sal-status: (), special container. TODO: add support in APP-2829
-  // Not supported: sal-toast: (), special container. TODO: add support in APP-2829
+  sal-status: (
+    default: $next-sibling,
+    summary-text: '+ div summary > span',
+    chevron: '+ div summary > svg',
+    content: '+ div div[data-testid="stExpanderDetails"]'
+  ),
+  // sal-toast: Alternate support as it lies outside the main container. It can be styled using %sal-toast within main.scss
   // Will not support: sal-write-stream
   // Will not support: sal-balloons
   // Will not support: sal-snow

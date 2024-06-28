@@ -44,6 +44,27 @@
   color: lawngreen;
 }
 
+// Example custom class TODO Remove after documentation tasks APP-2775/APP-2789
+%flex-row {
+  flex-direction: row;
+
+  div {
+    // Most streamlit components add width values as inline style. Make it fit the content.
+    width: fit-content !important;
+  }
+
+}
+
+// Example custom class TODO Remove after documentation tasks APP-2775/APP-2789
+%justify-center {
+  justify-content: center;
+}
+
+// Example custom class TODO Remove after documentation tasks APP-2775/APP-2789
+%justify-end {
+  justify-content: flex-end;
+}
+
 /* Add new custom classes under the respective `sal-` component name key here.
 *  They will be compiled into the final stylesheet.
 *  Utility classes that are intended for multiple types of components need to be
@@ -51,7 +72,9 @@
  */
 $custom-classes: (
   sal-button: (button-disabled, button-large),
+  sal-column: (justify-center, justify-end),
+  sal-columns-column-contents: (flex-row),
 );
 
-// Please note: Do not modify or move this final import!
+// Do not modify or move this final import!
 @import 'style-builder';

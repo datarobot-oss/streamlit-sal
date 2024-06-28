@@ -1,8 +1,8 @@
 [tool.poetry]
 name = "streamlit-sal"
-version = "0.0.1"
+version = "0.1.0"
 description = "Style and layout for your Streamlit app using SASS"
-authors = ["DataRobot Developers <apps-devs@datarobot.com>"]
+authors = ["DataRobot Developers <dev@datarobot.com>"]
 license = "MIT"
 readme = "README.md"
 homepage = "https://github.com/datarobot/streamlit-sal"
@@ -15,7 +15,7 @@ streamlit-sal = "streamlit_sal.scripts.cli:cli"
 
 [tool.poetry.dependencies]
 python = "!=3.9.7,>=3.8"
-streamlit = "1.35.0"
+streamlit = ">=1.34.0"
 click = "^8.1.7"
 libsass = "^0.23.0"
 

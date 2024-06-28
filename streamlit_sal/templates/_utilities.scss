@@ -1,14 +1,23 @@
+@import 'streamlit-component-map';
+
 /* This file contains utilities to simplify using selectors for the Streamlit components. */
 
-@function markdown_selector($tag, $class) {
-  @return '> div.stMarkdown > div[data-testid="stMarkdownContainer"] #{$tag}.' + $class;
+@function markdown_selector($tag, $class, $direct-child) {
+  @if $direct-child {
+    $direct-child: "> ";
+  } @else {
+    $direct-child: '';
+  }
+  @return $direct-child + 'div.stMarkdown > div[data-testid="stMarkdownContainer"] #{$tag}.' + $class;
 }
 
-@function streamlit_element_container_selector($component, $child-element-selector, $custom-class: null, $tag: 'span') {
-  $has-pseudo-selector: markdown_selector($tag, $component);
+@function streamlit_element_container_selector($component, $child-element-selector, $custom-class,
+                                               $tag: 'span', $parent: $default-parent, $direct-child: $default-direct-child) {
+  $has-pseudo-selector: markdown_selector($tag, $component, $direct-child);
   @if $custom-class {
-    $has-pseudo-selector: '#{markdown_selector($tag, $component)}.#{$custom-class}';
+    @debug $custom-class;
+    $has-pseudo-selector: '#{markdown_selector($tag, $component, $direct-child)}.#{$custom-class}';
   }
 
-  @return 'div.element-container:has(#{$has-pseudo-selector}) #{$child-element-selector}'
+  @return '#{$parent}:has(#{$has-pseudo-selector}) #{$child-element-selector}'
 }
