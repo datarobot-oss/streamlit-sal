@@ -36,12 +36,21 @@ def sal_stylesheet(reduce_markdown_spacing=True, move_sidebar_right=False):
 
 
 @contextmanager
-def create_markdown_container(component_name, class_names=None, is_hidden=True):
+def create_markdown_container(*args, **kwargs):
+    is_hidden = kwargs.pop('is_hidden', True)
+    container = kwargs.pop('container') if 'container' in kwargs else None
+    component_name = kwargs.pop('component_name') if 'component_name' in kwargs else None
+    if component_name is None:
+        raise ValueError(f"component_name has to be defined.")
+
     # Replace any name underscores with dash to match class naming conventions in the style placeholders
     component_name = component_name.replace("_", "-")
-    classes = list(class_names) if class_names else []
+    classes = list(args) if args else []
     classes.append(f"sal-{component_name}")
     if is_hidden:
         classes.append('hidden')
-    st.markdown(f"<span class='{' '.join(classes)}'></span>", unsafe_allow_html=True)
+    if container:
+        container.markdown(f"<span class='{' '.join(classes)}'></span>", unsafe_allow_html=True)
+    else:
+        st.markdown(f"<span class='{' '.join(classes)}'></span>", unsafe_allow_html=True)
     yield

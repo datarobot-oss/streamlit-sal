@@ -15,7 +15,7 @@ streamlit-sal = "streamlit_sal.scripts.cli:cli"
 
 [tool.poetry.dependencies]
 python = "!=3.9.7,>=3.8"
-streamlit = "1.35.0"
+streamlit = "1.36.0"
 click = "^8.1.7"
 libsass = "^0.23.0"
 

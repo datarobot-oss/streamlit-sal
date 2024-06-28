@@ -1,303 +1,319 @@
 from .utils import create_markdown_container
 
 
+def validate_container_kwarg(component_name, **kwargs):
+    if 'container' not in kwargs:
+        print(
+            f"[INFO] Pass the layout container from your st.{component_name} call to SAL. Read more here: ")  # TODO Add git doc link APP-2775
+        raise TypeError(f"(sal.{component_name}) Missing required keyword argument: 'container'")
+    pass
+
+
 # Text elements
-def write(*args):
-    return create_markdown_container('write', args)
+def write(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='write')
 
 
-def title(*args):
-    return create_markdown_container('title', args)
+def title(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='title')
 
 
-def header(*args):
-    return create_markdown_container('header', args)
+def header(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='header')
 
 
-def subheader(*args):
-    return create_markdown_container('subheader', args)
+def subheader(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='subheader')
 
 
-def markdown(*args):
-    return create_markdown_container('markdown', args)
+def markdown(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='markdown')
 
 
 # Formatted text elements
-def caption(*args):
-    return create_markdown_container('caption', args)
+def caption(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='caption')
 
 
-def code(*args):
-    return create_markdown_container('code', args)
+def code(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='code')
 
 
-def divider(*args):
-    return create_markdown_container('divider', args)
+def divider(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='divider')
 
 
-def latex(*args):
-    return create_markdown_container('latex', args)
+def latex(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='latex')
 
 
-def text(*args):
-    return create_markdown_container('text', args)
+def text(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='text')
 
 
 # Data elements
-def dataframe(*args):
-    return create_markdown_container('dataframe', args)
+def dataframe(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='dataframe')
 
 
-def data_editor(*args):
-    return create_markdown_container('data_editor', args)
+def data_editor(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='data_editor')
 
 
-def table(*args):
-    return create_markdown_container('table', args)
+def table(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='table')
 
 
-def metric(*args):
-    return create_markdown_container('metric', args)
+def metric(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='metric')
 
 
-def json(*args):
-    return create_markdown_container('json', args)
+def json(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='json')
 
 
 # Chart elements
-def area_chart(*args):
-    return create_markdown_container('area_chart', args)
+def area_chart(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='area_chart')
 
 
-def bar_chart(*args):
-    return create_markdown_container('bar_chart', args)
+def bar_chart(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='bar_chart')
 
 
-def line_chart(*args):
-    return create_markdown_container('line_chart', args)
+def line_chart(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='line_chart')
 
 
-def map(*args):
-    return create_markdown_container('map', args)
+def map(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='map')
 
 
-def altair_chart(*args):
-    return create_markdown_container('altair_chart', args)
+def altair_chart(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='altair_chart')
 
 
-def scatter_chart(*args):
-    return create_markdown_container('scatter_chart', args)
+def scatter_chart(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='scatter_chart')
 
 
-def bokeh_chart(*args):
-    return create_markdown_container('bokeh_chart', args)
+def bokeh_chart(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='bokeh_chart')
 
 
-def graphviz_chart(*args):
-    return create_markdown_container('graphviz_chart', args)
+def graphviz_chart(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='graphviz_chart')
 
 
-def plotly_chart(*args):
-    return create_markdown_container('plotly_chart', args)
+def plotly_chart(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='plotly_chart')
 
 
-def pydeck_chart(*args):
-    return create_markdown_container('pydeck_chart', args)
+def pydeck_chart(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='pydeck_chart')
 
 
-def pyplot(*args):
-    return create_markdown_container('pyplot', args)
+def pyplot(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='pyplot')
 
 
-def vega_lite_chart(*args):
-    return create_markdown_container('vega_lite_chart', args)
+def vega_lite_chart(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='vega_lite_chart')
 
 
 # Input elements
 
-def button(*args):
-    return create_markdown_container('button', args)
+def button(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='button')
 
 
-def download_button(*args):
-    return create_markdown_container('download_button', args)
+def download_button(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='download_button')
 
 
-def form_submit_button(*args):
-    return create_markdown_container('form_submit_button', args)
+def form_submit_button(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='form_submit_button')
 
 
-def link_button(*args):
-    return create_markdown_container('link_button', args)
+def link_button(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='link_button')
 
 
-def page_link(*args):
-    return create_markdown_container('page_link', args)
+def page_link(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='page_link')
 
 
-def checkbox(*args):
-    return create_markdown_container('checkbox', args)
+def checkbox(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='checkbox')
 
 
-def color_picker(*args):
-    return create_markdown_container('color_picker', args)
+def color_picker(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='color_picker')
 
 
-def multiselect(*args):
-    return create_markdown_container('multiselect', args)
+def multiselect(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='multiselect')
 
 
-def radio(*args):
-    return create_markdown_container('radio', args)
+def radio(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='radio')
 
 
-def selectbox(*args):
-    return create_markdown_container('selectbox', args)
+def selectbox(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='selectbox')
 
 
-def select_slider(*args):
-    return create_markdown_container('select_slider', args)
+def select_slider(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='select_slider')
 
 
-def toggle(*args):
-    return create_markdown_container('toggle', args)
+def toggle(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='toggle')
 
 
-def number_input(*args):
-    return create_markdown_container('number_input', args)
+def number_input(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='number_input')
 
 
-def slider(*args):
-    return create_markdown_container('slider', args)
+def slider(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='slider')
 
 
-def date_input(*args):
-    return create_markdown_container('date_input', args)
+def date_input(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='date_input')
 
 
-def time_input(*args):
-    return create_markdown_container('time_input', args)
+def time_input(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='time_input')
 
 
-def text_area(*args):
-    return create_markdown_container('text_area', args)
+def text_area(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='text_area')
 
 
-def text_input(*args):
-    return create_markdown_container('text_input', args)
+def text_input(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='text_input')
 
 
-def camera_input(*args):
-    return create_markdown_container('camera_input', args)
+def camera_input(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='camera_input')
 
 
-def file_uploader(*args):
-    return create_markdown_container('file_uploader', args)
+def file_uploader(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='file_uploader')
 
 
 # Media elements
 
 
-def audio(*args):
-    return create_markdown_container('audio', args)
+def audio(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='audio')
 
 
-def image(*args):
-    return create_markdown_container('image', args)
+def image(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='image')
 
 
-def logo(*args):
-    return create_markdown_container('logo', args)
+def logo(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='logo')
 
 
-def video(*args):
-    return create_markdown_container('video', args)
+def video(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='video')
 
 
 # Layout and container elements
-# TODO Add support in APP-
-
-def columns(*args):
-    return create_markdown_container('columns', args)
+def columns(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='columns')
 
 
-def column(*args):
-    return create_markdown_container('column', args)
+def column(*args, **kwargs):
+    # Column element has to pass its container for the span identifier
+    validate_container_kwarg('column', **kwargs)
+    return create_markdown_container(*args, **kwargs, component_name='column')
 
 
-def container(*args):
-    return create_markdown_container('container', args)
+def container(*args, **kwargs):
+    # Container element has to pass its container for the span identifier
+    validate_container_kwarg('container', **kwargs)
+    return create_markdown_container(*args, **kwargs, component_name='container')
 
 
-def dialog(*args):
-    return create_markdown_container('dialog', args)
+def dialog(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='dialog')
 
 
-def empty(*args):
-    return create_markdown_container('empty', args)
+def empty(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='empty')
 
 
-def expander(*args):
-    return create_markdown_container('expander', args)
+def expander(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='expander')
 
 
-def form(*args):
-    return create_markdown_container('form', args)
+def form(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='form')
 
 
-def popover(*args):
-    return create_markdown_container('popover', args)
+def popover(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='popover')
 
 
-def sidebar(*args):
-    return create_markdown_container('sidebar', args)
+def popover_content(*args, **kwargs):
+    # Popover element has to pass its container for the span identifier
+    validate_container_kwarg('popover_content', **kwargs)
+    return create_markdown_container(*args, **kwargs, component_name='popover_content')
 
 
-def tabs(*args):
-    return create_markdown_container('tabs', args)
+def sidebar(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='sidebar')
+
+
+def tabs(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='tabs')
 
 
 # Chat elements
-def chat_input(*args):
-    return create_markdown_container('chat_input', args)
+def chat_input(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='chat_input')
 
 
-def chat_message(*args):
-    return create_markdown_container('chat_message', args)
+def chat_message(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='chat_message')
 
 
 # Status elements
-def success(*args):
-    return create_markdown_container('success', args)
+def success(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='success')
 
 
-def info(*args):
-    return create_markdown_container('info', args)
+def info(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='info')
 
 
-def warning(*args):
-    return create_markdown_container('warning', args)
+def warning(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='warning')
 
 
-def error(*args):
-    return create_markdown_container('error', args)
+def error(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='error')
 
 
-def exception(*args):
-    return create_markdown_container('exception', args)
+def exception(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='exception')
 
 
-def progress(*args):
-    return create_markdown_container('progress', args)
+def progress(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='progress')
 
 
-def spinner(*args):
-    return create_markdown_container('spinner', args)
+def spinner(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='spinner')
 
 
-def status(*args):
-    return create_markdown_container('status', args)
+def status(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='status')
 
 
-def toast(*args):
-    return create_markdown_container('toast', args)
+def toast(*args, **kwargs):
+    return create_markdown_container(*args, **kwargs, component_name='toast')
