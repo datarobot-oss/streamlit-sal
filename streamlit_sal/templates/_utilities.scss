@@ -15,7 +15,6 @@
                                                $tag: 'span', $parent: $default-parent, $direct-child: $default-direct-child) {
   $has-pseudo-selector: markdown_selector($tag, $component, $direct-child);
   @if $custom-class {
-    @debug $custom-class;
     $has-pseudo-selector: '#{markdown_selector($tag, $component, $direct-child)}.#{$custom-class}';
   }
 
