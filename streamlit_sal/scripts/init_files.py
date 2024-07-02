@@ -4,13 +4,13 @@ from importlib.resources import files
 
 import click
 
-from .. import CONFIG_FILE_NAME, STYLE_SASS_SOURCE_FILES, STYLE_DEFAULT_CSS_FILE_NAME, \
-    STYLE_DEFAULT_DIST_DIRECTORY, ConfigOptions
+from .. import CONFIG_FILE_NAME, STYLE_DEFAULT_CSS_FILE_NAME, \
+    STYLE_DEFAULT_DIST_DIRECTORY, ConfigOptions, STYLE_SASS_MAIN_FILE_NAME
 from ..utils import update_config, get_config_value
 
-SASS_PATH_MSG = "Enter a destination path for the SASS source files"
-CSS_PATH_MSG = f"Enter a destination path for the compiled CSS file output"
-CSS_FILE_MSG = f"Enter a file name for the compiled CSS"
+SASS_PATH_MSG = "Enter a destination path for the SASS source main file"
+CSS_PATH_MSG = "Enter a destination path for the compiled CSS file output"
+CSS_FILE_MSG = "Enter a file name for the compiled CSS"
 
 
 def check_css_extension(file_name):
@@ -53,9 +53,8 @@ def init_files(root_dir, sass_src_path=None, css_stylesheet_path=None, css_style
     if sass_source_path != root_dir:
         create_directory_if_not_exists(sass_source_path)
 
-    # Copy all sass files to the given or default source path
-    for sass_src_file_name in STYLE_SASS_SOURCE_FILES:
-        copy_template_file(sass_src_file_name, sass_source_path)
+    # Copy the main sass file to the given or default source path
+    copy_template_file(STYLE_SASS_MAIN_FILE_NAME, sass_source_path)
 
 
 def copy_template_file(file_name, destination_path):
