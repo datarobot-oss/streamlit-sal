@@ -72,7 +72,7 @@ $element-container-components: (
     fullscreen-button: $fullscreen-button
   ),
   sal-metric: (
-    container: $next-sibling,
+    default: $next-sibling,
     value: '+ div div[data-testid="stMetricValue"]',
     delta: '+ div div[data-testid="stMetricDelta"]',
     label: $label
@@ -257,7 +257,7 @@ $element-container-components: (
     button: '+div button[data-testid="stChatInputSubmitButton"]'
   ),
   sal-chat-message: (
-    container: $next-sibling,
+    default: $next-sibling,
     name: '+ div div.stChatMessage > div:first-child',
     content: '+ div div[data-testid="stChatMessageContent"]'
   ),
