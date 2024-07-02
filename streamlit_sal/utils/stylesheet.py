@@ -5,7 +5,7 @@ import streamlit as st
 from .config import get_css_filepath
 
 
-def sal_stylesheet(reduce_markdown_spacing=True, move_sidebar_right=False):
+def sal_stylesheet(move_sidebar_right=False, reduce_main_container_space=True):
     css_filepath = get_css_filepath()
     try:
         with open(css_filepath, 'r') as css_file:
@@ -21,7 +21,7 @@ def sal_stylesheet(reduce_markdown_spacing=True, move_sidebar_right=False):
                 """, unsafe_allow_html=True)
 
                 app_styles = []
-                if reduce_markdown_spacing:
+                if reduce_main_container_space:
                     app_styles.append('sal-reduce-main-container-space')
 
                 if move_sidebar_right:

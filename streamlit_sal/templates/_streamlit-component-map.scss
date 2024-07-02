@@ -258,7 +258,7 @@ $element-container-components: (
   ),
   sal-chat-message: (
     default: $next-sibling,
-    name: '+ div div.stChatMessage > div:first-child',
+    avatar: '+ div > div:first-child',
     content: '+ div div[data-testid="stChatMessageContent"]'
   ),
   /*** Status elements ***/
