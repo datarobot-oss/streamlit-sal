@@ -5,6 +5,7 @@ import streamlit as st
 from .config import get_css_filepath
 
 
+@contextmanager
 def sal_stylesheet(reduce_markdown_spacing=True, move_sidebar_right=False):
     css_filepath = get_css_filepath()
     try:
@@ -12,9 +13,7 @@ def sal_stylesheet(reduce_markdown_spacing=True, move_sidebar_right=False):
             css_stylesheet = css_file.read()
 
             if css_stylesheet:
-                container = st.container()
-
-                container.markdown(f"""
+                st.markdown(f"""
                     <style class="hidden">
                         {css_stylesheet}
                     </style>
@@ -28,9 +27,8 @@ def sal_stylesheet(reduce_markdown_spacing=True, move_sidebar_right=False):
                     app_styles.append('sal-move-sidebar-right')
 
                 if len(app_styles) > 0:
-                    container.markdown(f"<span class='{' '.join(app_styles)} hidden'></span>", unsafe_allow_html=True)
-
-                return container
+                    st.markdown(f"<span class='{' '.join(app_styles)} hidden'></span>", unsafe_allow_html=True)
+            yield
     except FileNotFoundError:
         raise FileNotFoundError(f"Could not locate stylesheet: {css_filepath}")
 
