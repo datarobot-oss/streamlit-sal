@@ -58,3 +58,11 @@ img[data-testid="stLogo"] {
 div[data-testid="stToast"] {
   @extend %sal-toast !optional;
 }
+
+div.stApp > header {
+  @extend %streamlit-app-header !optional;
+}
+
+section.main > div.block-container {
+  @extend %streamlit-app-view-block !optional;
+}
