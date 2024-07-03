@@ -1,6 +1,5 @@
-// Do not modify or move these import inject placeholder comments!
-// {{inject_utilities_import}}
-// {{inject_layout_import}}
+@import 'utilities';
+@import 'layout';
 
 /* In this file you can add custom styling for your Streamlit app.
 * Either use the general style placeholders such as `%sal-button` or
@@ -77,5 +76,5 @@ $custom-classes: (
   sal-columns-column-contents: (flex-row),
 );
 
-// Do not modify or move this import inject placeholder comments!
-// {{inject_style_builder_import}}
+// Do not modify or move this final import!
+@import 'style-builder';
