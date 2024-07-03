@@ -157,23 +157,23 @@ We define custom placeholders for the column:
 
 ```sass
 %justify-start {
-  justify-content:flex-start;
+  justify-content: flex-start
 }
 
 %justify-center {
-  justify-content:center;
+  justify-content: center
 }
 
 %justify-end {
-  justify-content:flex-end;
+  justify-content: flex-end
 }
 
 %flex-row {
-  flex-direction:row;
+  flex-direction: row
 
   div {
     // Most streamlit components add width values as inline style. Make it fit the content so justify works.
-    width: fit-content !important;
+    width: fit-content !important
   }
 }
 ```
