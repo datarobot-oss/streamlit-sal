@@ -4,7 +4,7 @@ from .utils import create_markdown_container
 def validate_container_kwarg(component_name, **kwargs):
     if 'container' not in kwargs:
         print(
-            f"[INFO] Pass the layout container from your st.{component_name} call to SAL. Read more here: ")  # TODO Add git doc link APP-2775
+            f"[INFO] Pass the layout container from your st.{component_name} call to SAL. Read more here: https://github.com/datarobot/streamlit-sal/blob/main/README.md")
         raise TypeError(f"(sal.{component_name}) Missing required keyword argument: 'container'")
     pass
 
