@@ -8,14 +8,14 @@ Here is a quick example of what it can do for you:
 ```sass
 // You define SASS style using a predefined placeholder
 %sal-button {
-  border: 1px dashed antiquewhite;
+  border: 1px dashed antiquewhite
 }
 
 // Or you define SASS style using a custom placeholder (*)
 %btn-large {
-  padding: 12px 18px;
+  padding: 12px 18px
   p {
-    font-weight:bold;
+    font-weight:bold
   }
 }
 ```
@@ -87,7 +87,7 @@ Let's take an example for st.button. We add a new border style for the existing 
 
 ```sass
 %sal-button {
-  border: 1px dashed red;
+  border: 1px dashed red
 }
 ```
 
@@ -114,9 +114,9 @@ new placeholders with the correct components.
 ```sass
 // Define a custom placeholder (avoid sal- prefix to minimize risk of duplicates)
 %btn-large {
-  padding: 12px 18px;
+  padding: 12px 18px
   p {
-    font-weight:bold;
+    font-weight:bold
   }
 }
 ```
@@ -127,7 +127,7 @@ to the sal-button. You can find the `$custom-classes` variable at the bottom of 
 ```sass
 $custom-classes: (
   sal-button: (btn-large),
-);
+)
 ```
 
 Multiple placeholders can be added to the same components and even reused between multiple components:
@@ -136,7 +136,7 @@ Multiple placeholders can be added to the same components and even reused betwee
 $custom-classes: (
   sal-button: (btn-large, btn-primary),
   sal-download-button: (btn-primary),
-);
+)
 ```
 
 ### Normal elements vs container elements
@@ -183,7 +183,7 @@ Now we register the new placeholders with `sal-column`:
 ```sass
 $custom-classes: (
   sal-column: (justify-start, justify-center, justify-end, flex-row),
-);
+)
 ```
 
 After `streamlit-sal compile` the styles are prepared, we can move on with the app code.
