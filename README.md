@@ -2,7 +2,7 @@
 
 ## What does it do?
 
-This library lets you easily style Streamlit components with ease!
+This library lets you style Streamlit components with ease!
 Here is a quick example of what it can do for you:
 
 ```sass
