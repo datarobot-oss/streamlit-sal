@@ -234,8 +234,6 @@ def column(*args, **kwargs):
 
 
 def container(*args, **kwargs):
-    # Container element has to pass its container for the span identifier
-    validate_container_kwarg('container', **kwargs)
     return create_markdown_container(*args, **kwargs, component_name='container')
 
 

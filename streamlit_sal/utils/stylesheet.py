@@ -6,7 +6,7 @@ from .config import get_css_filepath
 
 
 @contextmanager
-def sal_stylesheet(move_sidebar_right=False, reduce_main_container_space=True):
+def sal_stylesheet(move_sidebar_right=False, reduce_main_container_space=False):
     css_filepath = get_css_filepath()
     try:
         with open(css_filepath, 'r') as css_file:

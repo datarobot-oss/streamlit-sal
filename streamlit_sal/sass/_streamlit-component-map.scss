@@ -13,7 +13,7 @@ $input: '+ div input';
 $input-instructions: '+div div[data-testid="InputInstructions"]';
 $status-icon: '+ div span[data-testid="stAlertDynamicIcon"]';
 $notification: '+ div div[data-testid="stNotification"]';
-$first-vertical-block: '+ div div[data-testid="stVerticalBlockBorderWrapper"] > div > div[data-testid="stVerticalBlock"]';
+$first-vertical-block: '+ div[data-testid="stVerticalBlockBorderWrapper"] > div > div[data-testid="stVerticalBlock"]';
 
 // Structure defaults
 $default-parent: 'div.element-container';
