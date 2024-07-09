@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "streamlit-sal"
-version = "0.1.1"
+version = "0.1.2"
 description = "Style and layout for your Streamlit app using SASS"
 authors = ["DataRobot Developers <dev@datarobot.com>"]
 license = "MIT"

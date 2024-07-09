@@ -11,6 +11,12 @@ with sal_stylesheet():
     with sal.write():
         st.write('This should be blue text')
 
+    # TODO: Clean up after APP-2789
+    with sal.container():
+        test = st.container()
+        test.text('Hello')
+        test.code('world')
+
     with sal.metric():
         st.metric("Temperature", "70 °F", "1.2 °F")
 

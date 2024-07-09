@@ -143,7 +143,6 @@ $custom-classes: (
 Most elements behave the same, but there are some container-type elements that need special treatment.
 For these elements you will need to pass down the container to SAL to make it work:
 - `with sal.column(..., container=col1):  # From col0, col1 = st.columns(2)`
-- `with sal.container(..., container=container):  # From container = st.container()`
 - `with sal.popover_content(..., container=container):  # From container = st.container()`
 
 SAL should warn you when a container element was not used correctly.
