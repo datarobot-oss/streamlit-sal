@@ -28,4 +28,4 @@ This project's maintainers will make every effort to respond to any
 open issues as soon as possible.
 
 If you don't get a response within sevent days of creating your issue or
-pull request, please send us an email at oss-community-management@datarobot.com
+pull request, please send us an email at apps@datarobot.com
