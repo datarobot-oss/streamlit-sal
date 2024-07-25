@@ -1,1 +1,1 @@
-DataRobot Applications Team <apps@datarobot.com>
+DataRobot Applications Team <apps-oss@datarobot.com>
