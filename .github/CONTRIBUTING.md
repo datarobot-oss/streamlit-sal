@@ -1,18 +1,31 @@
-# New contributor guide
+# Contributing Guidelines
 
-Thanks a lot for investing your time in contributing to the project.
+Guidelines for developing and contributing to this project.
 
-In this guide you will find an overview of the contribution workflow.
+## List of project maintainers
 
-## Getting started
+- [Your Name](Your GitHub User URL)
 
-To get an overview of the project and start it locally, read the [README](../README.md).
 
-Create a new branch from the main when you start work.
-After making all necessary changes open the pull request to the main branch.
+## Opening new issues
 
-### Releasing changes
+- Before opening a new issue check if there are any existing FAQ entries (if one exists), issues or pull requests that match your case
+- Open an issue, and make sure to label the issue accordingly - bug, improvement, feature request, etc...
+- Be as specific and detailed as possible
 
-You can expect PRs to be reviewed within 24 hours (excluding weekends / holidays). 
-After getting approvals from the codeowners, they will evaluate how urgent your fix or request is, and prepare a 
-new build for a package release.
+## Did you find a bug?
+
+- Do not open up a GitHub issue if the bug is a security
+vulnerability, instead email the maintainers directly or email
+oss-community-management@datarobot.com if they do not respond within
+seven days
+- Ensure the bug was not already reported in the projects Issues section
+- Open an issue as described above
+
+## Responding to issues and pull requests
+
+This project's maintainers will make every effort to respond to any
+open issues as soon as possible.
+
+If you don't get a response within sevent days of creating your issue or
+pull request, please send us an email at oss-community-management@datarobot.com
