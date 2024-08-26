@@ -5,9 +5,9 @@ description = "Style and layout for your Streamlit app using SASS"
 authors = ["DataRobot Applications Team <apps-oss@datarobot.com>"]
 license = "MIT"
 readme = "README.md"
-homepage = "https://github.com/datarobot/streamlit-sal"
-repository = "https://github.com/datarobot/streamlit-sal"
-documentation = "https://github.com/datarobot/streamlit-sal"
+homepage = "https://github.com/datarobot-oss/streamlit-sal"
+repository = "https://github.com/datarobot-oss/streamlit-sal"
+documentation = "https://github.com/datarobot-oss/streamlit-sal"
 include = ["README.md", "LICENSE", "streamlit_sal/**"]
 
 [tool.poetry.scripts]
