@@ -20,7 +20,7 @@ Here is a quick example of what it can do for you:
 }
 ```
 
-(*[Read more about custom placeholders](#add-custom-classes-to-sal-components))
+(*[Read more about custom placeholders](https://github.com/datarobot-oss/streamlit-sal/tree/main?tab=readme-ov-file#add-custom-classes-to-sal-components))
 
 Run `streamlit-sal compile`
 
@@ -48,7 +48,6 @@ Result:
 >
 > We cannot guarantee that this library will continue to work for every Streamlit release!
 
-<a name="how-to-install-it"></a>
 ## How to install it?
 
 Install with `pip install streamlit-sal`
@@ -62,7 +61,7 @@ You can test whether the `init` was successful by running `streamlit-sal compile
 
 ## How to use it?
 
-(*[Make sure to initiate the library first](#how-to-install-it))
+(*[Make sure to initiate the library first](https://github.com/datarobot-oss/streamlit-sal/tree/main?tab=readme-ov-file#how-to-install-it))
 
 Wrap your app code with the stylesheet:
 
@@ -104,7 +103,7 @@ with sal_stylesheet():
     with sal.button():
         st.button('Red Border Button')
 ```
-<a name="add-custom-classes-to-sal-components"></a>
+
 ### Add custom classes to SAL components
 
 SAL can easily be extended with additional custom placeholders/classes. Though it is important to register the
@@ -138,7 +137,7 @@ $custom-classes: (
 )
 ```
 
-<a name="normal-elements-vs-container-elements"></a>
+
 ### Normal elements vs container elements
 Most elements behave the same, but there are some container-type elements that need special treatment.
 For these elements you will need to pass down the container to SAL to make it work:
@@ -243,4 +242,4 @@ Any new custom classes that are registered properly will also be looped over dur
 - Make sure you have run `streamlit-sal compile`
 
 ### The element I try to style has moved outside its container
-- It might be a container element, pass it into sal using the `container=` arg [Read more](#normal-elements-vs-container-elements)
+- It might be a container element, pass it into sal using the `container=` arg [Read more](https://github.com/datarobot-oss/streamlit-sal/tree/main?tab=readme-ov-file#normal-elements-vs-container-elements)
