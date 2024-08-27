@@ -42,15 +42,14 @@ with sal_stylesheet(move_sidebar_right=True):
 
 Result:
 
-![Result example screenshot](screenshots/readme-button-example.png)
+![Result example screenshot](https://github.com/datarobot-oss/streamlit-sal/raw/main/screenshots/readme-button-example.png)
 
 > **Disclaimer**
 >
 > We cannot guarantee that this library will continue to work for every Streamlit release!
 
+<a name="how-to-install-it"></a>
 ## How to install it?
-
-# TODO: Publish the package
 
 Install with `pip install streamlit-sal`
 
@@ -105,7 +104,7 @@ with sal_stylesheet():
     with sal.button():
         st.button('Red Border Button')
 ```
-
+<a name="add-custom-classes-to-sal-components"></a>
 ### Add custom classes to SAL components
 
 SAL can easily be extended with additional custom placeholders/classes. Though it is important to register the
@@ -139,6 +138,7 @@ $custom-classes: (
 )
 ```
 
+<a name="normal-elements-vs-container-elements"></a>
 ### Normal elements vs container elements
 Most elements behave the same, but there are some container-type elements that need special treatment.
 For these elements you will need to pass down the container to SAL to make it work:
@@ -150,7 +150,7 @@ SAL should warn you when a container element was not used correctly.
 
 ### Advanced Example: Columns with flex and justify
 
-![Result](screenshots/flex-column-example.png)
+![Result](https://github.com/datarobot-oss/streamlit-sal/raw/main/screenshots/flex-column-example.png)
 
 We define custom placeholders for the column:
 
