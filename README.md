@@ -20,7 +20,7 @@ Here is a quick example of what it can do for you:
 }
 ```
 
-(*[Read more about custom placeholders](https://github.com/datarobot-oss/streamlit-sal/tree/main?tab=readme-ov-file#add-custom-classes-to-sal-components))
+(*[Read more about custom placeholders](https://github.com/datarobot-oss/streamlit-sal/tree/main#add-custom-classes-to-sal-components))
 
 Run `streamlit-sal compile`
 
@@ -61,7 +61,7 @@ You can test whether the `init` was successful by running `streamlit-sal compile
 
 ## How to use it?
 
-(*[Make sure to initiate the library first](https://github.com/datarobot-oss/streamlit-sal/tree/main?tab=readme-ov-file#how-to-install-it))
+(*[Make sure to initiate the library first](https://github.com/datarobot-oss/streamlit-sal/tree/main#how-to-install-it))
 
 Wrap your app code with the stylesheet:
 
@@ -242,4 +242,4 @@ Any new custom classes that are registered properly will also be looped over dur
 - Make sure you have run `streamlit-sal compile`
 
 ### The element I try to style has moved outside its container
-- It might be a container element, pass it into sal using the `container=` arg [Read more](https://github.com/datarobot-oss/streamlit-sal/tree/main?tab=readme-ov-file#normal-elements-vs-container-elements)
+- It might be a container element, pass it into sal using the `container=` arg [Read more](https://github.com/datarobot-oss/streamlit-sal/tree/main#normal-elements-vs-container-elements)
