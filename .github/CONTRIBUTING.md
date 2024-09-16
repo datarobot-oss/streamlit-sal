@@ -4,7 +4,7 @@ Guidelines for developing and contributing to this project.
 
 ## List of project maintainers
 
-- [Your Name](Your GitHub User URL)
+- [Kim Dehmlow](https://github.com/kideh88)
 
 
 ## Opening new issues
