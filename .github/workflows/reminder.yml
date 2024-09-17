@@ -45,7 +45,7 @@ jobs:
             # Send Slack notification
             curl -X POST -H 'Content-type: application/json' \
             --data "{
-              \"text\": \"*Reminder:* Pull Request '${PR_TITLE}' is still in review, please take a look!\",
+              \"text\": \"*Reminder:* Pull Request '${PR_TITLE}' needs a reviewer!\",
               \"blocks\": [
                 {
                   \"type\": \"section\",
