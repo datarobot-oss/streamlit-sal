@@ -10,7 +10,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Send reminders for PRs with "Ready for review"
         run: |
@@ -31,12 +31,16 @@ jobs:
             _jq() {
               echo ${row} | base64 --decode | jq -r ${1}
             }
-            PR_NR=$(_jq '.number')
+            PR_NUMBER=$(_jq '.number')
             PR_TITLE=$(_jq '.title')
             PR_URL=$(_jq '.html_url')
             PR_AUTHOR=$(_jq '.user.login')
-            PR_ADDITIONS=$(_jq '.additions')
-            PR_DELETIONS=$(_jq '.deletions')
+
+            PR_DETAILS=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+              "https://api.github.com/repos/${{ github.repository }}/pulls/${PR_NUMBER}")
+            PR_ADDITIONS=$(echo $PR_DETAILS | jq '.additions')
+            PR_DELETIONS=$(echo $PR_DETAILS | jq '.deletions')
+            REPO_NAME=$(echo $PR_DETAILS | jq '.base.repo.full_name')
 
             # Send Slack notification
             curl -X POST -H 'Content-type: application/json' \
@@ -47,14 +51,14 @@ jobs:
                   \"type\": \"section\",
                   \"text\": {
                     \"type\": \"mrkdwn\",
-                    \"text\": \":warning: *Reminder:* Pull Request <${PR_URL}|#${PR_NR}> is still in review, please take a look!\"
+                    \"text\": \":warning: *Reminder:* Pull Request <${PR_URL}|#${PR_NUMBER}> still needs a reviewer, please take a look!\"
                   }
                 },
                 {
                   \"type\": \"section\",
                   \"text\": {
                     \"type\": \"mrkdwn\",
-                    \"text\": \":rocket: PR by ${PR_AUTHOR} needs a review: \`+${PR_ADDITIONS} -${PR_DELETIONS}\` <${PR_URL}|${REPO_NAME}#${PR_NR}: ${PR_TITLE}>\"
+                    \"text\": \":rocket: PR by ${PR_AUTHOR} needs a review: \`+${PR_ADDITIONS} -${PR_DELETIONS}\` <${PR_URL}|${REPO_NAME}#${PR_NUMBER}: ${PR_TITLE}>\"
                   }
                 }
               ]
