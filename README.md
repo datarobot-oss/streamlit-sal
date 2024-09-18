@@ -20,7 +20,7 @@ Here is a quick example of what it can do for you:
 }
 ```
 
-(*[Read more about custom placeholders](#add-custom-classes-to-sal-components))
+(*[Read more about custom placeholders](https://github.com/datarobot-oss/streamlit-sal/tree/main#add-custom-classes-to-sal-components))
 
 Run `streamlit-sal compile`
 
@@ -42,15 +42,13 @@ with sal_stylesheet(move_sidebar_right=True):
 
 Result:
 
-![Result example screenshot](screenshots/readme-button-example.png)
+![Result example screenshot](https://github.com/datarobot-oss/streamlit-sal/raw/main/screenshots/readme-button-example.png)
 
 > **Disclaimer**
 >
 > We cannot guarantee that this library will continue to work for every Streamlit release!
 
 ## How to install it?
-
-# TODO: Publish the package
 
 Install with `pip install streamlit-sal`
 
@@ -63,7 +61,7 @@ You can test whether the `init` was successful by running `streamlit-sal compile
 
 ## How to use it?
 
-(*[Make sure to initiate the library first](#how-to-install-it))
+(*[Make sure to initiate the library first](https://github.com/datarobot-oss/streamlit-sal/tree/main#how-to-install-it))
 
 Wrap your app code with the stylesheet:
 
@@ -139,6 +137,7 @@ $custom-classes: (
 )
 ```
 
+
 ### Normal elements vs container elements
 Most elements behave the same, but there are some container-type elements that need special treatment.
 For these elements you will need to pass down the container to SAL to make it work:
@@ -150,7 +149,7 @@ SAL should warn you when a container element was not used correctly.
 
 ### Advanced Example: Columns with flex and justify
 
-![Result](screenshots/flex-column-example.png)
+![Result](https://github.com/datarobot-oss/streamlit-sal/raw/main/screenshots/flex-column-example.png)
 
 We define custom placeholders for the column:
 
@@ -243,4 +242,4 @@ Any new custom classes that are registered properly will also be looped over dur
 - Make sure you have run `streamlit-sal compile`
 
 ### The element I try to style has moved outside its container
-- It might be a container element, pass it into sal using the `container=` arg [Read more](#normal-elements-vs-container-elements)
+- It might be a container element, pass it into sal using the `container=` arg [Read more](https://github.com/datarobot-oss/streamlit-sal/tree/main#normal-elements-vs-container-elements)
