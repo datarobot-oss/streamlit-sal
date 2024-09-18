@@ -12,4 +12,4 @@
 # Default owners for everything in the repo.
 # Unless a later match takes precedence, these groups will be requested for
 # review when someone opens a pull request.
-/                                                @datarobot-oss/applications-oss
+*   @datarobot-oss/applications-oss
