@@ -1,0 +1,15 @@
+# This file defines which domain owns what parts of this repository.
+#
+# The syntax is the same as defined in
+# https://help.github.com/articles/about-codeowners/
+#
+# Important Rules:
+# 1. The last matching pattern in this file takes precedence
+#
+# 2. Only domains (github team) own code, not individuals
+#    see list at https://github.com/orgs/datarobot-oss/teams
+#
+# Default owners for everything in the repo.
+# Unless a later match takes precedence, these groups will be requested for
+# review when someone opens a pull request.
+*   @datarobot-oss/applications-oss

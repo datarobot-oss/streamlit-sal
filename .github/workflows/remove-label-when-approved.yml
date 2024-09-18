@@ -1,0 +1,39 @@
+name: Remove "Ready for review" label on PR approval
+
+on:
+  pull_request_review:
+    types: [submitted]
+
+jobs:
+  remove-label-on-approval:
+    if: github.event.review.state == 'approved'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Remove "Ready for review" label from PR
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const { data: pullRequest } = await github.rest.pulls.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.payload.pull_request.number
+            });
+
+            const labelToRemove = 'Ready for review';
+            const labels = pullRequest.labels.map(label => label.name);
+
+            if (labels.includes(labelToRemove)) {
+              await github.rest.issues.removeLabel({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.payload.pull_request.number,
+                name: labelToRemove
+              });
+              console.log(`Removed label: ${labelToRemove}`);
+            } else {
+              console.log(`Label ${labelToRemove} not found on PR.`);
+            }

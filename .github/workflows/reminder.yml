@@ -1,0 +1,67 @@
+name: Periodic PR Reminders
+
+on:
+  schedule:
+    - cron: '0 */3 * * *' # Runs every 3 hours
+
+jobs:
+  reminder:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Send reminders for PRs with "Ready for review"
+        run: |
+          SLACK_WEBHOOK_URL="${{ secrets.SLACK_WEBHOOK_URL }}"
+          
+          # Fetch PRs with "Ready for review" label
+          PRS=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            "https://api.github.com/repos/${{ github.repository }}/issues?labels=Ready%20for%20review&state=open&per_page=100")
+          PR_COUNT=$(echo $PRS | jq '. | length')
+          
+          if [ "$PR_COUNT" -eq 0 ]; then
+            echo "No PRs with 'Ready for review' label found."
+            exit 0
+          fi
+
+          # Iterate over each PR and send a reminder
+          for row in $(echo "${PRS}" | jq -r '.[] | @base64'); do
+            _jq() {
+              echo ${row} | base64 --decode | jq -r ${1}
+            }
+            PR_NUMBER=$(_jq '.number')
+            PR_TITLE=$(_jq '.title')
+            PR_URL=$(_jq '.html_url')
+            PR_AUTHOR=$(_jq '.user.login')
+
+            PR_DETAILS=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+              "https://api.github.com/repos/${{ github.repository }}/pulls/${PR_NUMBER}")
+            PR_ADDITIONS=$(echo $PR_DETAILS | jq '.additions')
+            PR_DELETIONS=$(echo $PR_DETAILS | jq '.deletions')
+            REPO_NAME=$(echo $PR_DETAILS | jq '.base.repo.full_name')
+
+            # Send Slack notification
+            curl -X POST -H 'Content-type: application/json' \
+            --data "{
+              \"text\": \"*Reminder:* Pull Request '${PR_TITLE}' needs a reviewer!\",
+              \"blocks\": [
+                {
+                  \"type\": \"section\",
+                  \"text\": {
+                    \"type\": \"mrkdwn\",
+                    \"text\": \":warning: *Reminder:* Pull Request <${PR_URL}|#${PR_NUMBER}> still needs a reviewer, please take a look!\"
+                  }
+                },
+                {
+                  \"type\": \"section\",
+                  \"text\": {
+                    \"type\": \"mrkdwn\",
+                    \"text\": \":rocket: PR by ${PR_AUTHOR} needs a review: \`+${PR_ADDITIONS} -${PR_DELETIONS}\` <${PR_URL}|${REPO_NAME}#${PR_NUMBER}: ${PR_TITLE}>\"
+                  }
+                }
+              ]
+            }" \
+            $SLACK_WEBHOOK_URL
+          done
