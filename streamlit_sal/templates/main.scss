@@ -8,19 +8,17 @@
 
 %sal-button-container {
   // [st.button] Container styles
-  // TODO Remove after documentation tasks APP-2775/APP-2789
   padding: 0 20px;
 }
 
 %sal-button {
   // [st.button] Button styles
-  // TODO Remove after documentation tasks APP-2775/APP-2789
   border-radius: 5px;
   border-color: pink;
   color: pink;
 }
 
-// Example custom class TODO Remove after documentation tasks APP-2775/APP-2789
+// Example custom class
 %button-large {
   font-size: large;
   font-weight: bold;
@@ -28,23 +26,24 @@
   border: 3px solid black;
 }
 
-// Example custom class TODO Remove after documentation tasks APP-2775/APP-2789
+// Example custom class
 %button-disabled {
   cursor: not-allowed;
   opacity: 0.5;
 }
 
-// Example custom class TODO Remove after documentation tasks APP-2775/APP-2789
 %sal-write {
+  // [st.write] Text styles
   color: blue;
 }
 
-// Example custom class TODO Remove after documentation tasks APP-2775/APP-2789
+// Example custom class
 %sal-metric-label {
+  // [st.metric] Label styles
   color: lawngreen;
 }
 
-// Example custom class TODO Remove after documentation tasks APP-2775/APP-2789
+// Example custom class
 %flex-row {
   flex-direction: row;
 
@@ -55,12 +54,12 @@
 
 }
 
-// Example custom class TODO Remove after documentation tasks APP-2775/APP-2789
+// Example custom class
 %justify-center {
   justify-content: center;
 }
 
-// Example custom class TODO Remove after documentation tasks APP-2775/APP-2789
+// Example custom class
 %justify-end {
   justify-content: flex-end;
 }

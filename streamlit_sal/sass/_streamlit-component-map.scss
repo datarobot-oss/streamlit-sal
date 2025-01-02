@@ -10,10 +10,10 @@ $widget-label: '+ div div[data-testid="stWidgetLabel"]';
 $chart: '+ div div[data-testid="stArrowVegaLiteChart"]';
 $button: "+ div button";
 $input: '+ div input';
-$input-instructions: '+div div[data-testid="InputInstructions"]';
+$input-instructions: '+ div div[data-testid="InputInstructions"]';
 $status-icon: '+ div span[data-testid="stAlertDynamicIcon"]';
-$notification: '+ div div[data-testid="stNotification"]';
-$first-vertical-block: '+ div[data-testid="stVerticalBlockBorderWrapper"] > div > div[data-testid="stVerticalBlock"]';
+$status-container: '+ div div[data-testid="stAlertContainer"]';
+$first-vertical-block: '+ div[data-testid="stVerticalBlockBorderWrapper"] > div > div.stVerticalBlock';
 
 // Structure defaults
 $default-parent: 'div.element-container';
@@ -205,13 +205,13 @@ $element-container-components: (
   /*** Layout and container elements ***/
   sal-columns: (
     default: $next-sibling,
-    column: '+ div div[data-testid="column"]',
+    column: '+ div div.stColumn',
     column-contents: $first-vertical-block
   ),
   sal-column: (
-    _parent: 'div[data-testid="column"]',
+    _parent: 'div.stColumn',
     _direct-child: false,
-    default: 'div[data-testid="stVerticalBlock"]',
+    default: 'div.stVerticalBlock',
   ),
   sal-container: (
     container: $next-sibling,
@@ -264,31 +264,31 @@ $element-container-components: (
   /*** Status elements ***/
   sal-success: (
     container: $next_sibling,
-    default: $notification,
+    default: $status-container,
     icon: $status-icon,
     text: $markdown-container,
   ),
   sal-info: (
     container: $next_sibling,
-    default: $notification,
+    default: $status-container,
     icon: $status-icon,
     text: $markdown-container,
   ),
   sal-warning: (
     container: $next_sibling,
-    default: $notification,
+    default: $status-container,
     icon: $status-icon,
     text: $markdown-container,
   ),
   sal-error: (
     container: $next_sibling,
-    default: $notification,
+    default: $status-container,
     icon: $status-icon,
     text: $markdown-container,
   ),
   sal-exception: (
     container: $next_sibling,
-    default: $notification,
+    default: $status-container,
     message: '+ div div.message',
   ),
   sal-progress: (
