@@ -7,11 +7,9 @@ with sal_stylesheet():
     st.header('Example app for SAL')
     st.subheader('Remember to run `streamlit-sal compile` before running this example app')
 
-    # TODO: Clean up after APP-2789
     with sal.write():
         st.write('This should be blue text')
 
-    # TODO: Clean up after APP-2789
     with sal.container():
         test = st.container()
         test.text('Hello')

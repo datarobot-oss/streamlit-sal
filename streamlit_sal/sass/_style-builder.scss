@@ -63,6 +63,14 @@ div.stApp > header {
   @extend %streamlit-app-header !optional;
 }
 
-section.main > div.block-container {
+section.stMain > div.block-container {
   @extend %streamlit-app-view-block !optional;
+}
+
+div.stDialog {
+  @extend %streamlit-app-dialog !optional;
+}
+
+div.stDialog > div:has(> div[data-testid="stVerticalBlockBorderWrapper"]) {
+  @extend %streamlit-app-dialog-content !optional;
 }
