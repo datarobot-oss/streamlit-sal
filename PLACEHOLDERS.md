@@ -277,8 +277,8 @@
 %sal-tabs-list-buttons {} // Targets the button elements with the tab list
 %sal-tabs-panel {}        // Targets the content panel div
 
-// %sal-logo has Alternate support as it lies outside the main container.
-// It can be styled directly using %%sal-logo within main.scss but does not allow custom classes
+// %sal-logo has alternate support as it lies outside the main container.
+// It can be styled directly using %sal-logo within main.scss but does not allow custom classes
 
 /*** Chat elements ***/
 %sal-chat-input {}            // Targets the stChatInput div child element

@@ -77,7 +77,7 @@ This will render a streamlit markdown element with a style tag containing the co
 ### Add placeholders, compile and render
 
 Navigate to your `main.scss` and start adding the style placeholders that you need. The available predefined
-placeholders can be found [here](https://github.com/datarobot/streamlit-sal/PLACEHOLDERS.md). A rule of thumb for
+placeholders can be found [here](https://github.com/datarobot-oss/streamlit-sal/PLACEHOLDERS.md). A rule of thumb for
 placeholders is that every Streamlit component name
 exists with a `sal-` prefix and underscores are replaced by dashes (`st.download_button` -> `sal-download-button`)
 
@@ -226,7 +226,7 @@ div:has(> div.stMarkdown > div[data-testid="stMarkdownContainer"] span.sal-butto
 ### Building the selectors so you don't have to
 
 SAL uses SASS to dynamically build all the required selectors using
-a [component structure map](https://github.com/datarobot/streamlit-sal/blob/main/streamlit_sal/sass/_streamlit-component-map.scss)
+a [component structure map](https://github.com/datarobot-oss/streamlit-sal/blob/main/streamlit_sal/sass/_streamlit-component-map.scss)
 and an `@each` loop.
 The output CSS will be selectors just like the one seen above. All the defined SASS `%` placeholders are optional and
 will not be part of the compiled when not set.
